@@ -39,25 +39,33 @@
             </el-card>
           </el-col>
         </el-row>
-        
-        <el-card class="content-card">
-          <template #header>
-            <div class="card-header">
-              <span>最新公告</span>
-              <el-button type="primary" link>查看更多</el-button>
-            </div>
-          </template>
-          <div class="news-list">
-            <div class="news-item">
-              <span class="news-title">系统升级公告</span>
-              <span class="news-date">2024-03-20</span>
-            </div>
-            <div class="news-item">
-              <span class="news-title">温馨提示：保持良好心情哦</span>
-              <span class="news-date">2024-03-19</span>
-            </div>
-          </div>
-        </el-card>
+
+        <el-row :gutter="20" class="mt-20">
+          <el-col :span="12">
+            <!-- 游戏化健康打卡组件 -->
+            <DailyHealthCheckIn />
+          </el-col>
+          <el-col :span="12">
+            <el-card class="content-card no-margin">
+              <template #header>
+                <div class="card-header">
+                  <span>最新公告</span>
+                  <el-button type="primary" link>查看更多</el-button>
+                </div>
+              </template>
+              <div class="news-list">
+                <div class="news-item">
+                  <span class="news-title">系统升级公告</span>
+                  <span class="news-date">2024-03-20</span>
+                </div>
+                <div class="news-item">
+                  <span class="news-title">温馨提示：保持良好心情哦</span>
+                  <span class="news-date">2024-03-19</span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>
@@ -69,6 +77,7 @@ import { useRouter } from 'vue-router'
 import request from '@/api/request'
 import { ElMessage } from 'element-plus'
 import logoSrc from '@/assets/logo.png'
+import DailyHealthCheckIn from '@/components/DailyHealthCheckIn.vue'
 
 const router = useRouter()
 const username = ref('用户')
@@ -200,12 +209,20 @@ const handleLogout = async () => {
 .content-card {
   margin-top: 20px;
   
+  &.no-margin {
+    margin-top: 0;
+  }
+  
   .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
   }
+}
+
+.mt-20 {
+  margin-top: 20px;
 }
 
 .news-list {
