@@ -4,6 +4,8 @@
       <div class="logo">星辰 · 用户端</div>
       <div class="menu">
         <div class="menu-item" @click="router.push('/')">首页</div>
+        <div class="menu-item" @click="router.push('/health-data')">健康看板</div>
+        <div class="menu-item" @click="router.push('/points-mall')">积分商城</div>
         <div class="menu-item active">个人中心</div>
         <div class="menu-item" @click="handleLogout">退出登录</div>
       </div>
